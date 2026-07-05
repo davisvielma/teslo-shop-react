@@ -45,12 +45,8 @@ export const ProductForm = ({
   const [dragActive, setDragActive] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // const [selectedSizes, selectedTags, currentStock, files = []] = watch([
-  //   "sizes",
-  //   "tags",
-  //   "stock",
-  //   "files",
-  // ]);
+  // const [selectedSizes, selectedTags, currentStock, files = [], images = []] =
+  //   watch(["sizes", "tags", "stock", "files", "images"]);
 
   const [
     selectedSizes = [],
@@ -66,8 +62,9 @@ export const ProductForm = ({
   useEffect(() => {
     if (isSubmitSuccessful) {
       setValue("files", []);
+      setValue("images", product.images);
     }
-  }, [isSubmitSuccessful, setValue]);
+  }, [isSubmitSuccessful, setValue, product]);
 
   const addTag = () => {
     const newTag = inputRef.current?.value || "";

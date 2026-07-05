@@ -25,7 +25,6 @@ export const AdminProductPage = () => {
         const message = `Producto ${id === "new" ? "creado" : "actualizado"} correctamente`;
         toast.success(message, { position: "top-right" });
         navigate(`/admin/products/${data.id}`);
-        productLike.files = [];
       },
       onError: (error) => {
         console.log(error);
